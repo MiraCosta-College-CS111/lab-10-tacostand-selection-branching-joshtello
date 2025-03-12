@@ -1,7 +1,7 @@
 public class TacoStand
 {
     /* CONSTANT VARIABLES */
-	public static final String BAR = "----------------------------------------";
+	public static final String BAR = "----------------------------------------", STEAK = "Carne Asada (Steak)", CHICKEN = "Pollo Asado (Chicken)", BEEFTONGUE = "Lengua (Beef Tongue)", ULTTACO = "Ultimate Taco";
 
 	/* STATIC VARIABLES */
 	private static int numAsada = 0, numPollo = 0, numLengua = 0, numUltimate = 0;
@@ -22,10 +22,10 @@ public class TacoStand
 	public static void printMenu()
 	{
 		System.out.println("Menu options:\n" + TacoStand.BAR);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 1, "Carne Asada (Steak)", 2.5);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 2, "Pollo Asado (Chicken)", 1.75);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 3, "Lengua (Beef Tongue)", 3.0);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 4, "Ultimate Taco", 18.0);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 1, STEAK , 2.5);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 2, CHICKEN, 1.75);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 3, BEEFTONGUE, 3.0);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 4, ULTTACO, 18.0);
 		System.out.println(TacoStand.BAR);
 	}
 	
@@ -71,17 +71,23 @@ public class TacoStand
 	 */
 	public static boolean orderSupplies(double budget)
 	{
-		//tacos cost 75 cents each in supplies, keeping it simple
-	    int tacosEach = (int)(Math.round(budget / 0.75 / 4));
+		if (budget <= TacoStand.totalFunds){
+			//tacos cost 75 cents each in supplies, keeping it simple
+			int tacosEach = (int)(Math.round(budget / 0.75 / 4));
 
-	    TacoStand.totalFunds -= budget;
+			TacoStand.totalFunds -= budget;
+	
+			TacoStand.numAsada += tacosEach;
+			TacoStand.numPollo += tacosEach;
+			TacoStand.numLengua += tacosEach;
+			TacoStand.numUltimate += tacosEach;
 
-	    TacoStand.numAsada += tacosEach;
-	    TacoStand.numPollo += tacosEach;
-	    TacoStand.numLengua += tacosEach;
-	    TacoStand.numUltimate += tacosEach;
+			return true;
+		}
+		
+		return false;
 
-		return true;  //TODO: this is stubbed, replace this line with your actual code!
+		
 	}
 
 	/**
@@ -93,7 +99,16 @@ public class TacoStand
 	 */
 	public static void updateTotalFunds(int tacoOption, int numTacos)
 	{
-		//TODO: this is stubbed, replace this line with your actual code!
+		TacoStand.totalFunds += tacoOption * numTacos;
+		if (tacoOption == 1){
+			TacoStand.numAsada -= numTacos;
+		}else if (tacoOption == 2){
+			TacoStand.numPollo -= numTacos;
+		}else if (tacoOption == 3){
+			TacoStand.numLengua -= numTacos;
+		}else if (tacoOption == 4){
+			TacoStand.numUltimate -= numTacos;
+		}
 	}
 	
 	
@@ -107,6 +122,40 @@ public class TacoStand
 	 */
 	public static boolean areTacosAvailable(int tacoOption, int numTacos)
 	{
-		return false; //TODO: this is stubbed, replace this line with your actual code!
+		if (tacoOption == 1){
+			if(numTacos > TacoStand.numAsada){
+				System.out.println("We don't have that many tacos, sorry! Try again :(");
+				return false;
+			}
+			else{
+				return true;
+			}
+		}else if (tacoOption == 2){
+			if(numTacos > TacoStand.numPollo){
+				System.out.println("We don't have that many tacos, sorry! Try again :(");
+				return false;
+			}
+			else{
+				return true;
+			}
+		}else if (tacoOption == 3){
+			if(numTacos > TacoStand.numLengua){
+				System.out.println("We don't have that many tacos, sorry! Try again :(");
+				return false;
+			}
+			else{
+				return true;
+			}
+		}else {
+			if(numTacos > TacoStand.numUltimate){
+				System.out.println("We don't have that many tacos, sorry! Try again :(");
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+
+		
 	}
 }

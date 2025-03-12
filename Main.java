@@ -67,8 +67,11 @@ public class Main
 		numTacosOrdered = UtilityBelt.readInt("Enter number of tacos you want> ", 1, 50);
 
 		//CALCULATION + OUTPUT SECTION
-		TacoStand.updateTotalFunds(option, numTacosOrdered);
-		Main.printConfirmation(numTacosOrdered);
+		if (TacoStand.areTacosAvailable(option, numTacosOrdered) == true){
+			TacoStand.updateTotalFunds(option, numTacosOrdered);
+			Main.printConfirmation(numTacosOrdered);
+		}
+		
 	}
 
 	/**
@@ -79,6 +82,14 @@ public class Main
 	public static void printConfirmation(int numTacos) //TODO: upgrade per documentation
 	{
 		System.out.println("Here you go, buen provecho!");
-		System.out.println("🌮");
+		if (numTacos == 1){
+			System.out.println("🌮");
+		}else if (numTacos == 2){
+			System.out.println("🌮🌮");
+		}else if (numTacos == 3){
+			System.out.println("🌮🌮🌮");
+		}else if (numTacos == 3){
+			System.out.println("🌮🌮🌮");
+		
 	}
 }
