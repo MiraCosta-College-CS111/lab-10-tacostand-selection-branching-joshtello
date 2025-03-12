@@ -88,8 +88,10 @@ public class Main
 			System.out.println("🌮🌮");
 		}else if (numTacos == 3){
 			System.out.println("🌮🌮🌮");
-		}else if (numTacos == 3){
-			System.out.println("🌮🌮🌮");
-		
+		}else if (numTacos == 4){
+			System.out.println("🌮🌮🌮🌮");
+		}else if (numTacos == 5){
+			System.out.println("🌮🌮🌮🌮🌮");
+		}
 	}
 }
