@@ -99,15 +99,19 @@ public class TacoStand
 	 */
 	public static void updateTotalFunds(int tacoOption, int numTacos)
 	{
-		TacoStand.totalFunds += tacoOption * numTacos;
+		
 		if (tacoOption == 1){
 			TacoStand.numAsada -= numTacos;
+			TacoStand.totalFunds += 2.5 * numTacos;
 		}else if (tacoOption == 2){
 			TacoStand.numPollo -= numTacos;
+			TacoStand.totalFunds += 1.75 * numTacos;
 		}else if (tacoOption == 3){
 			TacoStand.numLengua -= numTacos;
+			TacoStand.totalFunds += 3.0 * numTacos;
 		}else if (tacoOption == 4){
 			TacoStand.numUltimate -= numTacos;
+			TacoStand.totalFunds += 18.0 * numTacos;
 		}
 	}
 	

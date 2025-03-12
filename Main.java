@@ -1,7 +1,7 @@
+// PARTNER NAME:Joshuah Tello
 // PARTNER NAME:
-// PARTNER NAME:
-// CS111 SECTION #:
-// DATE:
+// CS111 SECTION #:1270
+// DATE:3/12/2025
 
 public class Main
 {
@@ -92,6 +92,13 @@ public class Main
 			System.out.println("🌮🌮🌮🌮");
 		}else if (numTacos == 5){
 			System.out.println("🌮🌮🌮🌮🌮");
+		}else if (numTacos == 6){
+			System.out.println("🌮🌮🌮🌮🌮🌮");
+		}else if (numTacos == 7){
+			System.out.println("🌮🌮🌮🌮🌮🌮🌮");
+		}else{
+			System.out.println("🌮🌮🌮🌮🌮🌮🌮🌮");
 		}
+		System.out.println();
 	}
 }
